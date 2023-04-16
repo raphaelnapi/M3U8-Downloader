@@ -6,7 +6,7 @@ Como exemplo de seu funcionamento utilize o link para testes como entrada ao exe
 https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/tears-of-steel-audio_eng=64008-video_eng=401000.m3u8
 ```
 
-# Implementações estudadas nesse projeto
+# Assuntos estudados nesse projeto
 1. Requisições HTTP
 2. Manipulação de strings
 3. Manipulação de byte array
