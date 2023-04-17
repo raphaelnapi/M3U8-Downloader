@@ -76,7 +76,7 @@ for item in index_array:
 if crypt_method != "":
     response = requests.get(key_url)
     key = response.content
-    ```
+```
 Se o valor da variável crypt_method for diferente de null_string significa que havia dados sobre criptografia no arquivo index M3U8. Neste caso, a variável key_url terá sido atribuída com o valor da URL do arquivo que contém a chave da cifra:
 1. Faz uma requisição HTTP GET para a URL da chave.
 2. Armazena os dados (byte array) na variável key.
@@ -97,7 +97,8 @@ for ts_file in ts_file_list:
         if IV[:-1] == (0).to_bytes(15, "big"):
             IV_counter += 1
             IV = IV_counter.to_bytes(16, "big")
-            ```
+```
+            
 1. Faz uma iteração para cada item na lista de arquivos TS (ts_file_list).
 2. Faz uma requisição HTTP GET para obter o conteúdo do arquivo TS.
 3. Caso a variável crypt_method tenha valor diferente de null_string (o que quer dizer que foram encontrados parâmetros de criptografia no arquivo index M3U8), utiliza um objeto AES para decriptografar o byte array recebido com os seguintes parâmetros: key (chave obtida na etapa anterior), AES.MODE_CBC (modo padrão de utilização da cifra AES), IV (vetor de inicialização obtido como parâmetro no arquivo index M3U8 ou seguindo padrão sequencial conforme explicado acima).
@@ -108,5 +109,5 @@ for ts_file in ts_file_list:
     file = open(ts_file, "wb")
     file.write(content)
     file.close()
-    ```
+```
 Devido o conteúdo do arquivo ser binário, utilizamos o parâmetro "wb" para escrever seu conteúdo que nesta etapa do algoritmo já estará decriptografado caso tenha sido identificado parâmetros de criptografia no arquivo index M3U8.
